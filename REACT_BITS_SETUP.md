@@ -25,7 +25,6 @@ This portfolio is configured to use React Bits through the shadcn registry forma
 - `src/components/CountUp/CountUp.jsx`
 - `src/components/SpotlightCard/SpotlightCard.jsx`
 - `src/components/SpotlightCard/SpotlightCard.css`
-- `src/components/Magnet/Magnet.jsx`
 - `src/components/DotGrid/DotGrid.jsx`
 - `src/components/DotGrid/DotGrid.css`
 - `src/components/TiltedCard/TiltedCard.jsx`
@@ -39,11 +38,10 @@ This portfolio is configured to use React Bits through the shadcn registry forma
 
 Aurora is available in the project, but it is not loaded by default on the homepage because the WebGL animation can feel heavy on some devices. The current homepage uses a lighter CSS-only aurora-inspired background.
 
-CountUp, SpotlightCard, and Magnet are active on the homepage:
+CountUp and SpotlightCard are active on the homepage:
 
 - CountUp animates the proof metrics.
 - SpotlightCard powers the featured project card hover effect.
-- Magnet adds a subtle cursor-following effect to primary links.
 - DotGrid provides a lightweight React Bits-inspired canvas grid in the hero.
 - TiltedCard adds a subtle 3D hover effect to the profile photo.
 - PillNav provides the top navigation interaction without adding GSAP/router dependencies.
@@ -74,6 +72,5 @@ Then copy the component files into `src/components`.
 - CountUp: proof metrics
 - AnimatedContent: section reveal animation
 - SpotlightCard or GlareHover: featured project cards
-- Magnet: primary buttons or social links
 
 Use React Bits as accents, not as the whole design system, so the portfolio stays professional and readable.

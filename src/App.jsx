@@ -17,7 +17,6 @@ import {
 import CountUp from "@/components/CountUp/CountUp.jsx";
 import DotGrid from "@/components/DotGrid/DotGrid.jsx";
 import LogoLoop from "@/components/LogoLoop/LogoLoop.jsx";
-import Magnet from "@/components/Magnet/Magnet.jsx";
 import PillNav from "@/components/PillNav/PillNav.jsx";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal.jsx";
 import ShinyText from "@/components/ShinyText/ShinyText.jsx";
@@ -102,17 +101,8 @@ function Pill({ children }) {
   return <span className="pill">{children}</span>;
 }
 
-function MagneticButton({ children, className = "", ...props }) {
-  return (
-    <Magnet padding={58} magnetStrength={4.5} wrapperClassName="magnet-button">
-      <a className={className} {...props}>
-        {children}
-      </a>
-    </Magnet>
-  );
-}
-
 function Header({ data, onAdmin }) {
+  const isDev = import.meta.env.DEV;
   const navItems = [
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
@@ -124,9 +114,13 @@ function Header({ data, onAdmin }) {
     <header className="site-header">
       <PillNav items={navItems} />
 
-      <button className="icon-button" type="button" onClick={onAdmin} aria-label="Open admin mode">
-        <PencilLine size={18} />
-      </button>
+      {isDev ? (
+        <button className="icon-button" type="button" onClick={onAdmin} aria-label="Open admin mode">
+          <PencilLine size={18} />
+        </button>
+      ) : (
+        <span className="header-spacer" aria-hidden="true" />
+      )}
     </header>
   );
 }
@@ -332,18 +326,18 @@ function Contact({ data }) {
         <h2>Open to AI projects, research collaboration, and data science opportunities.</h2>
       </div>
       <div className="contact__actions">
-        <MagneticButton className="button button--primary" href={`mailto:${data.profile.email}`}>
+        <a className="button button--primary" href={`mailto:${data.profile.email}`}>
           <Mail size={18} />
           Email
-        </MagneticButton>
-        <MagneticButton className="button button--ghost" href={data.profile.github} target="_blank" rel="noreferrer">
+        </a>
+        <a className="button button--ghost" href={data.profile.github} target="_blank" rel="noreferrer">
           <Code2 size={18} />
           GitHub
-        </MagneticButton>
-        <MagneticButton className="button button--ghost" href={data.profile.linkedin} target="_blank" rel="noreferrer">
+        </a>
+        <a className="button button--ghost" href={data.profile.linkedin} target="_blank" rel="noreferrer">
           <BriefcaseBusiness size={18} />
           LinkedIn
-        </MagneticButton>
+        </a>
       </div>
       <div className="contact__meta">
         <span>
@@ -352,7 +346,7 @@ function Contact({ data }) {
         </span>
         <span>
           <Trophy size={16} />
-          Juara Harapan 1 / 4th Place National - Satria Data 2025
+          4th Place National Winner - Satria Data 2025
         </span>
       </div>
     </ScrollReveal>
@@ -427,6 +421,7 @@ function AdminPanel({ data, onClose, onSave, onReset }) {
 export default function App() {
   const { data, saveData, resetData } = useEditablePortfolio();
   const [adminOpen, setAdminOpen] = useState(false);
+  const isDev = import.meta.env.DEV;
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -446,7 +441,7 @@ export default function App() {
       <Skills skills={data.skills} techLogos={data.techLogos || portfolioData.techLogos} />
       <Contact data={data} />
       <footer className="footer">Built for practical AI systems, research stories, and competition proof.</footer>
-      {adminOpen ? (
+      {isDev && adminOpen ? (
         <AdminPanel
           data={data}
           onClose={() => setAdminOpen(false)}
