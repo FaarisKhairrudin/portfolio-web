@@ -1,0 +1,22 @@
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(var(--scroll-reveal-y, 18px));
+  transition:
+    opacity var(--scroll-reveal-duration, 650ms) ease,
+    transform var(--scroll-reveal-duration, 650ms) ease;
+  transition-delay: var(--scroll-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
