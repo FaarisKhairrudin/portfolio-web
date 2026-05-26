@@ -10,7 +10,7 @@ export const portfolioData = {
     cv: "/cv_indo_FaarisKhairrudin.pdf",
     image: "/formal_image.jpeg",
     headline:
-      "Building practical AI systems from raw data to usable insight.",
+      "Building practical AI systems from data to decisions.",
     summary:
       "Data Science student at Telkom University with a 3.93 GPA, focused on multimodal AI, computer vision, time-series forecasting, reinforcement learning, and big data analytics. I enjoy turning research ideas and competition problems into working AI products, dashboards, and decision systems.",
   },

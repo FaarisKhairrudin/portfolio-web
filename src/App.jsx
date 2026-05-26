@@ -86,9 +86,9 @@ function HeroBackdrop() {
   );
 }
 
-function Section({ eyebrow, title, children, className = "" }) {
+function Section({ eyebrow, title, children, className = "", id }) {
   return (
-    <section className={`section ${className}`}>
+    <section id={id} className={`section ${className}`}>
       <ScrollReveal className="section__heading">
         <span className="eyebrow">{eyebrow}</span>
         <h2>{title}</h2>
@@ -140,7 +140,7 @@ function Hero({ data }) {
       <div className="hero__content reveal">
         <div className="hero__kicker">
           <Sparkles size={16} />
-          <ShinyText text="National-Level AI & Data Science Portfolio" />
+          <ShinyText text="AI & Data Science Portfolio" />
         </div>
         <h1>{data.profile.name}</h1>
         <p className="hero__role">{data.profile.role}</p>
@@ -215,12 +215,12 @@ function Metrics({ metrics }) {
 
 function About({ data }) {
   return (
-    <Section eyebrow="Profile" title="A builder profile shaped by competitions, research, and lab leadership.">
+    <Section eyebrow="Profile" title="Built through competitions, research, and lab leadership.">
       <div className="about-layout">
         <ScrollReveal as="p">
-          Faaris combines data science fundamentals with practical system building. His strongest
-          work sits at the intersection of model experimentation, data pipelines, and usable
-          product surfaces such as dashboards, APIs, and analytics workflows.
+          I build AI systems that go beyond notebooks: models connected to data pipelines,
+          dashboards, APIs, and decision workflows. My work is shaped by national competitions,
+          research projects, and Big Data Lab leadership.
         </ScrollReveal>
         <div className="focus-grid">
           {data.focusAreas.map((area, index) => (
@@ -236,8 +236,8 @@ function About({ data }) {
 
 function Projects({ projects }) {
   return (
-    <Section eyebrow="Selected Work" title="Featured projects with proof of depth." className="section--wide">
-      <div id="projects" className="project-grid">
+    <Section id="projects" eyebrow="Selected Work" title="Featured projects with proof of depth." className="section--wide">
+      <div className="project-grid">
         {projects.map((project, index) => (
           <ScrollReveal
             as={SpotlightCard}
@@ -276,8 +276,8 @@ function Projects({ projects }) {
 
 function Experience({ experience }) {
   return (
-    <Section eyebrow="Experience" title="Academic, research, and leadership track.">
-      <div id="experience" className="timeline">
+    <Section id="experience" eyebrow="Experience" title="Academic, research, and leadership track.">
+      <div className="timeline">
         {experience.map((item, index) => (
           <ScrollReveal
             as="article"
@@ -301,8 +301,8 @@ function Experience({ experience }) {
 
 function Skills({ skills, techLogos }) {
   return (
-    <Section eyebrow="Capabilities" title="A practical stack for AI systems.">
-      <div id="skills" className="skills-grid">
+    <Section id="skills" eyebrow="Capabilities" title="A practical stack for AI systems.">
+      <div className="skills-grid">
         {Object.entries(skills).map(([group, items], index) => (
           <ScrollReveal as="article" className="skill-card" delay={index * 90} key={group}>
             <div className="skill-card__icon">
