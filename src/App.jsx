@@ -14,6 +14,7 @@ import {
   Trophy,
   X,
 } from "lucide-react";
+import BounceCards from "@/components/BounceCards/BounceCards.jsx";
 import CountUp from "@/components/CountUp/CountUp.jsx";
 import DotGrid from "@/components/DotGrid/DotGrid.jsx";
 import LogoLoop from "@/components/LogoLoop/LogoLoop.jsx";
@@ -31,6 +32,10 @@ function normalizePortfolioData(data) {
     acc[metric.label] = metric;
     return acc;
   }, {});
+  const projectDefaults = portfolioData.projects.reduce((acc, project) => {
+    acc[project.title] = project;
+    return acc;
+  }, {});
 
   return {
     ...portfolioData,
@@ -41,7 +46,12 @@ function normalizePortfolioData(data) {
       ...metric,
     })),
     focusAreas: data.focusAreas || portfolioData.focusAreas,
-    projects: data.projects || portfolioData.projects,
+    profileImages: portfolioData.profileImages,
+    projects: (data.projects || portfolioData.projects).map((project) => ({
+      ...projectDefaults[project.title],
+      ...project,
+      image: projectDefaults[project.title]?.image || project.image,
+    })),
     experience: data.experience || portfolioData.experience,
     skills: data.skills || portfolioData.skills,
   };
@@ -211,18 +221,39 @@ function About({ data }) {
   return (
     <Section eyebrow="Profile" title="Built through competitions, research, and lab leadership.">
       <div className="about-layout">
-        <ScrollReveal as="p">
-          I build AI systems that go beyond notebooks: models connected to data pipelines,
-          dashboards, APIs, and decision workflows. My work is shaped by national competitions,
-          research projects, and Big Data Lab leadership.
-        </ScrollReveal>
-        <div className="focus-grid">
-          {data.focusAreas.map((area, index) => (
-            <ScrollReveal as="span" className="pill-reveal" delay={index * 45} key={area}>
-              <Pill>{area}</Pill>
-            </ScrollReveal>
-          ))}
+        <div className="about-copy">
+          <ScrollReveal as="p">
+            I build AI systems that go beyond notebooks: models connected to data pipelines,
+            dashboards, APIs, and decision workflows. My work is shaped by national competitions,
+            research projects, and Big Data Lab leadership.
+          </ScrollReveal>
+          <div className="focus-grid">
+            {data.focusAreas.map((area, index) => (
+              <ScrollReveal as="span" className="pill-reveal" delay={index * 45} key={area}>
+                <Pill>{area}</Pill>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
+        <ScrollReveal className="profile-moments" delay={120}>
+          <BounceCards
+            className="profile-bounceCards"
+            images={data.profileImages || []}
+            containerWidth={500}
+            containerHeight={250}
+            animationDelay={0.2}
+            animationStagger={0.08}
+            easeType="elastic.out(1, 0.5)"
+            transformStyles={[
+              "rotate(5deg) translate(-150px)",
+              "rotate(0deg) translate(-70px)",
+              "rotate(-5deg)",
+              "rotate(5deg) translate(70px)",
+              "rotate(-5deg) translate(150px)",
+            ]}
+            enableHover
+          />
+        </ScrollReveal>
       </div>
     </Section>
   );
@@ -233,38 +264,67 @@ function Projects({ projects }) {
     <Section id="projects" eyebrow="Selected Work" title="Featured projects with proof of depth." className="section--wide">
       <div className="project-grid">
         {projects.map((project, index) => (
-          <ScrollReveal
-            as={SpotlightCard}
-            className="project-card"
-            spotlightColor="rgba(85, 215, 255, 0.18)"
-            delay={index * 70}
-            key={project.title}
-          >
-            <div className="project-card__top">
-              <span className="project-card__index">{String(index + 1).padStart(2, "0")}</span>
-              <span className="project-card__type">{project.type}</span>
-            </div>
-            <h3>{project.title}</h3>
-            <p className="project-card__badge">{project.badge}</p>
-            <p>{project.description}</p>
-            <p className="project-card__impact">{project.impact}</p>
-            <div className="stack-list">
-              {project.stack.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </div>
-            {project.link ? (
-              <a className="text-link" href={project.link} target="_blank" rel="noreferrer">
-                Open repository
-                <ArrowUpRight size={16} />
-              </a>
-            ) : (
-              <span className="text-link text-link--muted">Research project</span>
-            )}
+          <ScrollReveal className="project-reveal" delay={index * 90} duration={900} y={34} key={project.title}>
+            <SpotlightCard className="project-card" spotlightColor="rgba(85, 215, 255, 0.18)">
+              {project.image ? (
+                <div className="project-card__media">
+                  <img src={project.image} alt={`${project.title} preview`} loading="lazy" decoding="async" />
+                </div>
+              ) : null}
+              <div className="project-card__top">
+                <span className="project-card__index">{String(index + 1).padStart(2, "0")}</span>
+                <span className="project-card__type">{project.type}</span>
+              </div>
+              <h3>{project.title}</h3>
+              <p className="project-card__badge">{project.badge}</p>
+              <p>{project.description}</p>
+              <div className="project-card__stack">
+                <span className="project-card__stack-label">Stack</span>
+                <div className="stack-list">
+                  {project.stack.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+              {project.link ? (
+                <a className="repo-link" href={project.link} target="_blank" rel="noreferrer">
+                  <GithubIcon />
+                  View Details on GitHub
+                  <ArrowUpRight size={16} />
+                </a>
+              ) : (
+                <span className="repo-link repo-link--muted" aria-disabled="true">
+                  <GithubIcon />
+                  Repository unavailable
+                </span>
+              )}
+            </SpotlightCard>
           </ScrollReveal>
         ))}
       </div>
+      <ScrollReveal className="projects-cta">
+        <a
+          className="projects-cta__link"
+          href="https://github.com/FaarisKhairrudin?tab=repositories"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>More projects on</span>
+          <GithubIcon />
+        </a>
+      </ScrollReveal>
     </Section>
+  );
+}
+
+function GithubIcon() {
+  return (
+    <svg className="github-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.36 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.26 9.26 0 0 1 12 7c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+      />
+    </svg>
   );
 }
 
@@ -321,22 +381,41 @@ function Skills({ skills, techLogos }) {
 function Contact({ data }) {
   return (
     <ScrollReveal as="section" id="contact" className="contact">
-      <div>
+      <div className="contact__copy">
         <span className="eyebrow">Contact</span>
-        <h2>Open to AI projects, research collaboration, and data science opportunities.</h2>
+        <h2>Let&apos;s build something with data.</h2>
+        <p>
+          Open for AI projects, research collaboration, competition work, and data science
+          opportunities.
+        </p>
       </div>
       <div className="contact__actions">
-        <a className="button button--primary" href={`mailto:${data.profile.email}`}>
-          <Mail size={18} />
-          Email
+        <a className="contact-link contact-link--primary" href={`mailto:${data.profile.email}`}>
+          <span className="contact-link__icon">
+            <Mail size={18} />
+          </span>
+          <span>
+            <strong>Email</strong>
+            <small>{data.profile.email}</small>
+          </span>
         </a>
-        <a className="button button--ghost" href={data.profile.github} target="_blank" rel="noreferrer">
-          <Code2 size={18} />
-          GitHub
+        <a className="contact-link" href={data.profile.github} target="_blank" rel="noreferrer">
+          <span className="contact-link__icon">
+            <GithubIcon />
+          </span>
+          <span>
+            <strong>GitHub</strong>
+            <small>Explore repositories</small>
+          </span>
         </a>
-        <a className="button button--ghost" href={data.profile.linkedin} target="_blank" rel="noreferrer">
-          <BriefcaseBusiness size={18} />
-          LinkedIn
+        <a className="contact-link" href={data.profile.linkedin} target="_blank" rel="noreferrer">
+          <span className="contact-link__icon">
+            <BriefcaseBusiness size={18} />
+          </span>
+          <span>
+            <strong>LinkedIn</strong>
+            <small>Connect professionally</small>
+          </span>
         </a>
       </div>
       <div className="contact__meta">

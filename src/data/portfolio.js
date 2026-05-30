@@ -28,72 +28,73 @@ export const portfolioData = {
     "Big Data Analytics",
     "Geospatial ML",
   ],
+  profileImages: [
+    "/assets/profile/profile-1.webp",
+    "/assets/profile/profile-2.webp",
+    "/assets/profile/profile-3.webp",
+    "/assets/profile/profile-4.webp",
+    "/assets/profile/satriadata-competition.webp",
+  ],
   projects: [
     {
       title: "Social Video Intelligence",
-      badge: "Juara Harapan 1 / 4th Place National - Satria Data 2025",
+      badge: "4th Place - Satria Data 2025",
+      image: "/assets/project/social-video-intelligence.webp",
       description:
-        "A multimodal social-media video analytics system that transforms video, audio, and text into structured insight through transcription, topic modeling, NER, summarization, and an interactive dashboard.",
-      stack: ["Whisper", "BLIP-2", "BERTopic", "GLiNER", "Qwen", "Next.js"],
+        "A multimodal social-media video analytics system that turns video, audio, and text into structured insights through transcription, topic modeling, NER, and summarization.",
+      stack: ["Whisper", "BLIP-2", "BERTopic", "GLiNER", "Qwen", "HuggingFace", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/social-video-multimodal-analysis",
       type: "Multimodal AI",
-      impact:
-        "Shows end-to-end AI system building across text, audio, visual, and dashboard layers.",
     },
     {
       title: "IDX Smart Rebalance",
       badge: "Top 7 National Finalist - Datathon UI 2025",
+      image: "/assets/project/idx-smart-rebalance.webp",
       description:
-        "An AI-powered Indonesian stock allocation system combining NeuralForecast, geopolitical news signals, and Deep Reinforcement Learning for adaptive sector rebalancing.",
+        "An AI-powered Indonesian stock allocation system combining NeuralForecast, geopolitical news signals, and Deep Reinforcement Learning for adaptive rebalancing.",
       stack: ["Python", "FastAPI", "Stable-Baselines3", "NeuralForecast", "DRL"],
       link: "https://github.com/FaarisKhairrudin/idx-smart-rebalance",
       type: "Financial AI",
-      impact:
-        "Connects forecasting, external risk signals, and decision automation in one pipeline.",
     },
     {
       title: "PETI Detection Research",
       badge: "Research Assistant - Telkom University",
+      image: "/assets/project/peti-detection-research.webp",
       description:
         "A geospatial machine learning research project for detecting illegal gold mining activity in Jambi and Central Kalimantan using satellite imagery and Google Earth Engine.",
       stack: ["Python", "Google Earth Engine", "Satellite Imagery", "Geospatial ML"],
       link: "",
       type: "Research",
-      impact:
-        "Applies machine learning to a real environmental and social-impact problem.",
     },
     {
       title: "Crowd Detection & Counting",
       badge: "Hology 8.0 - Data Mining Track",
+      image: "/assets/project/crowd-detection-counting.webp",
       description:
-        "A computer vision system for estimating crowd density in congested scenes using CSRNet, VGG-16 backbones, adaptive Gaussian density maps, and augmentation.",
+        "A computer vision system for estimating crowd density in congested scenes using CSRNet, VGG-16 backbones, density maps, and augmentation.",
       stack: ["PyTorch", "CSRNet", "VGG-16", "Albumentations"],
       link: "https://github.com/Frenwin/Hology-8.0-Crowd-Detection",
       type: "Computer Vision",
-      impact:
-        "Demonstrates deep learning for difficult visual scenes with occlusion and high density.",
     },
     {
       title: "Smart Face Anti-Spoofing",
       badge: "Find IT UGM 2026",
+      image: "/assets/project/smart-face-anti-spoofing.webp",
       description:
-        "A face anti-spoofing classifier for multiple attack types using DINOv3-based computer vision, focal loss, image augmentation, and multi-scale test-time inference.",
+        "A face anti-spoofing classifier for multiple attack types using DINOv3-based computer vision, focal loss, augmentation, and multi-scale inference.",
       stack: ["PyTorch", "Transformers", "DINOv3", "Focal Loss"],
       link: "https://github.com/FaarisKhairrudin/Smart-Face-AntiSpoofing",
       type: "AI Security",
-      impact:
-        "Targets biometric security and real-world model robustness.",
     },
     {
       title: "SQL Data Warehouse Project",
       badge: "Data Engineering Project",
+      image: "/assets/project/sql-data-warehouse-project.webp",
       description:
         "A medallion-architecture data warehouse with Bronze, Silver, and Gold layers, ETL pipelines, and analytics-ready SQL Server schemas.",
       stack: ["SQL Server", "ETL", "Data Modeling", "Medallion Architecture"],
       link: "https://github.com/FaarisKhairrudin/SQL-Data-Warehouse-Project",
       type: "Data Engineering",
-      impact:
-        "Highlights the data pipeline foundation behind reliable analytics and ML systems.",
     },
   ],
   experience: [

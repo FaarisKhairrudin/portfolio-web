@@ -15,8 +15,8 @@ This portfolio is configured to use React Bits through the shadcn registry forma
 ```
 
 - `vite.config.js` and `jsconfig.json` define the `@/*` alias for imports from `src`.
-- The Aurora component from React Bits has been added manually from the registry because the shadcn CLI failed while updating files in this environment.
-- The required `ogl` dependency is installed.
+- Some React Bits components were added manually from the registry because the shadcn CLI failed while updating files in this environment.
+- `gsap` is installed for the official BounceCards behavior.
 
 ## Installed React Bits component
 
@@ -35,6 +35,8 @@ This portfolio is configured to use React Bits through the shadcn registry forma
 - `src/components/LogoLoop/LogoLoop.css`
 - `src/components/ShinyText/ShinyText.jsx`
 - `src/components/ShinyText/ShinyText.css`
+- `src/components/BounceCards/BounceCards.jsx`
+- `src/components/BounceCards/BounceCards.css`
 
 Aurora is available in the project, but it is not loaded by default on the homepage because the WebGL animation can feel heavy on some devices. The current homepage uses a lighter CSS-only aurora-inspired background.
 
@@ -47,6 +49,7 @@ CountUp and SpotlightCard are active on the homepage:
 - PillNav provides the top navigation interaction without adding GSAP/router dependencies.
 - LogoLoop adds a lightweight technology icon rail in the Capabilities section.
 - ShinyText adds a subtle reflective highlight to the hero kicker.
+- BounceCards uses the GSAP-based React Bits implementation for the profile image stack.
 
 The original React Bits DotGrid uses GSAP and InertiaPlugin. This project uses a lightweight local adaptation for better portfolio performance.
 
