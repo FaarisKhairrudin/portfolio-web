@@ -45,6 +45,7 @@ export const portfolioData = {
       stack: ["Whisper", "BLIP-2", "BERTopic", "GLiNER", "Qwen", "HuggingFace", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/social-video-multimodal-analysis",
       type: "Multimodal AI",
+      categories: ["Featured", "AI & ML", "Automation & Systems"],
     },
     {
       title: "IDX Smart Rebalance",
@@ -55,6 +56,7 @@ export const portfolioData = {
       stack: ["Python", "FastAPI", "Stable-Baselines3", "NeuralForecast", "DRL"],
       link: "https://github.com/FaarisKhairrudin/idx-smart-rebalance",
       type: "Financial AI",
+      categories: ["Featured", "AI & ML", "Data & Analytics", "Automation & Systems"],
     },
     {
       title: "PETI Detection Research",
@@ -65,6 +67,7 @@ export const portfolioData = {
       stack: ["Python", "Google Earth Engine", "Satellite Imagery", "Geospatial ML"],
       link: "",
       type: "Research",
+      categories: ["Featured", "AI & ML"],
     },
     {
       title: "Crowd Detection & Counting",
@@ -75,6 +78,7 @@ export const portfolioData = {
       stack: ["PyTorch", "CSRNet", "VGG-16", "Albumentations"],
       link: "https://github.com/Frenwin/Hology-8.0-Crowd-Detection",
       type: "Computer Vision",
+      categories: ["Featured", "AI & ML"],
     },
     {
       title: "Smart Face Anti-Spoofing",
@@ -85,6 +89,7 @@ export const portfolioData = {
       stack: ["PyTorch", "Transformers", "DINOv3", "Focal Loss"],
       link: "https://github.com/FaarisKhairrudin/Smart-Face-AntiSpoofing",
       type: "AI Security",
+      categories: ["Featured", "AI & ML"],
     },
     {
       title: "SQL Data Warehouse Project",
@@ -95,6 +100,51 @@ export const portfolioData = {
       stack: ["SQL Server", "ETL", "Data Modeling", "Medallion Architecture"],
       link: "https://github.com/FaarisKhairrudin/SQL-Data-Warehouse-Project",
       type: "Data Engineering",
+      categories: ["Featured", "Data & Analytics", "Automation & Systems"],
+    },
+    {
+      title: "Lenta AI Operations System",
+      badge: "AI Agent & Business Automation",
+      image: "/assets/project/lenta-ai-operations-system.webp",
+      description:
+        "An end-to-end operations system for water and gas delivery, combining WhatsApp AI customer service, n8n workflows, Supabase data, and an operational dashboard.",
+      stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
+      link: "https://github.com/FaarisKhairrudin/lenta-ai-operations-system",
+      type: "AI Automation",
+      categories: ["Featured", "Automation & Systems", "Data & Analytics"],
+    },
+    {
+      title: "DATAVIDIA ISPU Prediction",
+      badge: "DATAVIDIA 2026 Preliminary",
+      image: "/assets/project/project-placeholder.svg",
+      description:
+        "A Jakarta air-quality forecasting pipeline that predicts ISPU categories using multivariate time-series modeling and optimized classification thresholds.",
+      stack: ["Python", "NeuralForecast", "TFT", "Pandas", "Scikit-learn"],
+      link: "",
+      type: "Forecasting",
+      categories: ["AI & ML", "Data & Analytics"],
+    },
+    {
+      title: "Bank Customer Deposit Prediction",
+      badge: "Data Science Indonesia Challenge",
+      image: "/assets/project/bank-customer-deposit-prediction.webp",
+      description:
+        "A tabular machine learning project for predicting term-deposit subscription using feature engineering, class imbalance handling, and ensemble boosting models.",
+      stack: ["Python", "XGBoost", "LightGBM", "CatBoost", "Ensemble"],
+      link: "https://github.com/FaarisKhairrudin/bank-customer-deposit-prediction",
+      type: "Tabular ML",
+      categories: ["AI & ML", "Data & Analytics"],
+    },
+    {
+      title: "Global Food Price Forecasting",
+      badge: "ADIKARA 2024 Finalist",
+      image: "/assets/project/project-placeholder.svg",
+      description:
+        "A commodity price forecasting project for modeling global food price index movement across multiple countries using historical trend and seasonality patterns.",
+      stack: ["Python", "Scikit-learn", "Time Series", "Forecasting"],
+      link: "",
+      type: "Forecasting",
+      categories: ["AI & ML", "Data & Analytics"],
     },
   ],
   experience: [

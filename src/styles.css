@@ -437,6 +437,62 @@ h3 {
   gap: 16px;
 }
 
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.project-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(111, 240, 198, 0.25);
+  color: #dffaf5;
+}
+
+.project-tab.is-active {
+  border-color: rgba(111, 240, 198, 0.36);
+  background:
+    linear-gradient(135deg, rgba(111, 240, 198, 0.13), rgba(85, 215, 255, 0.08)),
+    rgba(255, 255, 255, 0.045);
+  color: var(--mint);
+}
+
+.project-tab span {
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.project-tab small {
+  display: grid;
+  min-width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #d4e8e4;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
 .project-reveal {
   display: flex;
   min-width: 0;

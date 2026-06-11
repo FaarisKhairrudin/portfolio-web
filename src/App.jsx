@@ -47,11 +47,15 @@ function normalizePortfolioData(data) {
     })),
     focusAreas: data.focusAreas || portfolioData.focusAreas,
     profileImages: portfolioData.profileImages,
-    projects: (data.projects || portfolioData.projects).map((project) => ({
-      ...projectDefaults[project.title],
-      ...project,
-      image: projectDefaults[project.title]?.image || project.image,
-    })),
+    projects: portfolioData.projects.map((project) => {
+      const savedProject = (data.projects || []).find((item) => item.title === project.title);
+      return {
+        ...project,
+        ...savedProject,
+        image: project.image,
+        categories: project.categories,
+      };
+    }),
     experience: data.experience || portfolioData.experience,
     skills: data.skills || portfolioData.skills,
   };
@@ -260,10 +264,29 @@ function About({ data }) {
 }
 
 function Projects({ projects }) {
+  const projectGroups = ["Featured", "AI & ML", "Data & Analytics", "Automation & Systems"];
+  const [activeGroup, setActiveGroup] = useState(projectGroups[0]);
+  const projectsForGroup = projects.filter((project) => (project.categories || ["Featured"]).includes(activeGroup));
+  const visibleProjects = projectsForGroup.slice(0, 6);
+
   return (
     <Section id="projects" eyebrow="Selected Work" title="Featured projects with proof of depth." className="section--wide">
-      <div className="project-grid">
-        {projects.map((project, index) => (
+      <ScrollReveal className="project-tabs" y={12}>
+        {projectGroups.map((group) => (
+          <button
+            className={`project-tab ${activeGroup === group ? "is-active" : ""}`}
+            type="button"
+            onClick={() => setActiveGroup(group)}
+            key={group}
+          >
+            <span>{group}</span>
+            <small>{Math.min(projects.filter((project) => (project.categories || ["Featured"]).includes(group)).length, 6)}</small>
+          </button>
+        ))}
+      </ScrollReveal>
+
+      <div className="project-grid" key={activeGroup}>
+        {visibleProjects.map((project, index) => (
           <ScrollReveal className="project-reveal" delay={index * 90} duration={900} y={34} key={project.title}>
             <SpotlightCard className="project-card" spotlightColor="rgba(85, 215, 255, 0.18)">
               {project.image ? (
