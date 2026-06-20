@@ -1,7 +1,7 @@
 export const portfolioData = {
   profile: {
     name: "Faaris Khairrudin",
-    role: "Data Science Student & AI Builder",
+    role: "AI Engineer & Data Scientist",
     location: "Bandung / Bekasi, Indonesia",
     email: "faariskhairrudin@gmail.com",
     github: "https://github.com/FaarisKhairrudin",
@@ -10,9 +10,9 @@ export const portfolioData = {
     cv: "/cv_indo_FaarisKhairrudin.pdf",
     image: "/formal_image.jpeg",
     headline:
-      "Building practical AI systems from data to decisions.",
+      "From raw data to production AI - I build, compete, and ship.",
     summary:
-      "Data Science student at Telkom University with a 3.93 GPA, focused on multimodal AI, computer vision, time-series forecasting, reinforcement learning, and big data analytics. I enjoy turning research ideas and competition problems into working AI products, dashboards, and decision systems.",
+      "Turning research ideas and competition problems into working AI systems, dashboards, and decision pipelines. 3.93 GPA at Telkom University, focused on multimodal AI, computer vision, forecasting, and big data.",
   },
   metrics: [
     { value: "3.93", label: "GPA / 4.00", countTo: 3.93 },
@@ -120,7 +120,7 @@ export const portfolioData = {
       description:
         "A Jakarta air-quality forecasting pipeline that predicts ISPU categories using multivariate time-series modeling and optimized classification thresholds.",
       stack: ["Python", "NeuralForecast", "TFT", "Pandas", "Scikit-learn"],
-      link: "",
+      link: "https://github.com/FaarisKhairrudin/neuralforecast-air-quality-jakarta",
       type: "Forecasting",
       categories: ["Forecasting & Machine Learning"],
     },
@@ -136,17 +136,6 @@ export const portfolioData = {
       categories: ["Forecasting & Machine Learning"],
     },
     {
-      title: "Global Food Price Forecasting",
-      badge: "ADIKARA 2024 Finalist",
-      image: "/assets/project/project-placeholder.svg",
-      description:
-        "A commodity price forecasting project for modeling global food price index movement across multiple countries using historical trend and seasonality patterns.",
-      stack: ["Python", "Scikit-learn", "Time Series", "Forecasting"],
-      link: "",
-      type: "Forecasting",
-      categories: ["Forecasting & Machine Learning"],
-    },
-    {
       title: "Narapangan",
       badge: "Applied Forecasting System",
       image: "/assets/project/project-placeholder.svg",
@@ -159,7 +148,7 @@ export const portfolioData = {
     },
     {
       title: "COPPA Violation Detection",
-      badge: "FindIT UGM — Data Science Track",
+      badge: "FindIT UGM - Data Science Track",
       image: "/assets/project/project-placeholder.svg",
       description:
         "A classification project detecting mobile apps potentially violating COPPA using app metadata, exploratory data analysis, feature engineering, and ensemble ML models.",

@@ -1,28 +1,26 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
   Check,
   Code2,
-  Download,
   Mail,
   MapPin,
+  Moon,
   PencilLine,
   RefreshCcw,
   Save,
-  Sparkles,
+  Sun,
   Trophy,
   X,
 } from "lucide-react";
+import { motion } from "motion/react";
 import BounceCards from "@/components/BounceCards/BounceCards.jsx";
 import CountUp from "@/components/CountUp/CountUp.jsx";
-import DotGrid from "@/components/DotGrid/DotGrid.jsx";
 import LogoLoop from "@/components/LogoLoop/LogoLoop.jsx";
 import PillNav from "@/components/PillNav/PillNav.jsx";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal.jsx";
-import ShinyText from "@/components/ShinyText/ShinyText.jsx";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard.jsx";
-import TiltedCard from "@/components/TiltedCard/TiltedCard.jsx";
 import { portfolioData } from "./data/portfolio.js";
 
 const STORAGE_KEY = "faaris-portfolio-data";
@@ -84,21 +82,6 @@ function useEditablePortfolio() {
   return { data, saveData, resetData };
 }
 
-function HeroBackdrop() {
-  return (
-    <div className="hero-backdrop" aria-hidden="true">
-      <DotGrid
-        dotSize={2.2}
-        gap={28}
-        baseColor="#1c3b3d"
-        activeColor="#55d7ff"
-        proximity={110}
-        opacity={0.68}
-      />
-    </div>
-  );
-}
-
 function Section({ eyebrow, title, children, className = "", id }) {
   return (
     <section id={id} className={`section ${className}`}>
@@ -115,7 +98,7 @@ function Pill({ children }) {
   return <span className="pill">{children}</span>;
 }
 
-function Header({ data, onAdmin }) {
+function Header({ onAdmin, theme, onToggleTheme }) {
   const isDev = import.meta.env.DEV;
   const navItems = [
     { label: "Projects", href: "#projects" },
@@ -128,66 +111,124 @@ function Header({ data, onAdmin }) {
     <header className="site-header">
       <PillNav items={navItems} />
 
-      {isDev ? (
-        <button className="icon-button" type="button" onClick={onAdmin} aria-label="Open admin mode">
-          <PencilLine size={18} />
+      <div className="header-actions">
+        <button className="icon-button" type="button" onClick={onToggleTheme} aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}>
+          {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
         </button>
-      ) : (
-        <span className="header-spacer" aria-hidden="true" />
-      )}
+
+        {isDev ? (
+          <button className="icon-button" type="button" onClick={onAdmin} aria-label="Open admin mode">
+            <PencilLine size={16} />
+          </button>
+        ) : null}
+      </div>
     </header>
   );
 }
 
 function Hero({ data }) {
-  const focus = data.focusAreas.join(" / ");
+  const heroRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+
+  const handleMouseMove = (e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
+  };
+
+  const nameWords = data.profile.name.split(" ");
+
+  const wordVariants = {
+    initial: { opacity: 0, y: 40 },
+    animate: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.2 + i * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    }),
+  };
 
   return (
-    <main id="top" className="hero">
-      <HeroBackdrop />
-      <div className="hero__content reveal">
-        <div className="hero__kicker">
-          <Sparkles size={16} />
-          <ShinyText text="AI & Data Science Portfolio" />
-        </div>
-        <h1>{data.profile.name}</h1>
-        <p className="hero__role">{data.profile.role}</p>
-        <p className="hero__headline">{data.profile.headline}</p>
-        <p className="hero__summary">{data.profile.summary}</p>
-
-        <div className="hero__actions">
+    <main id="top" className="hero" ref={heroRef} onMouseMove={handleMouseMove}>
+      <div
+        className="hero-glow"
+        style={{ "--mx": mousePos.x, "--my": mousePos.y }}
+        aria-hidden="true"
+      />
+      <div className="hero__content">
+        <motion.div
+          className="hero__kicker"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          AI & Data Science Portfolio
+        </motion.div>
+        <h1>
+          {nameWords.map((word, i) => (
+            <motion.span
+              className="word"
+              key={word}
+              custom={i}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={wordVariants}
+            >
+              {word}{" "}
+            </motion.span>
+          ))}
+        </h1>
+        <motion.p
+          className="hero__role"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {data.profile.role}
+        </motion.p>
+        <motion.p
+          className="hero__blurb"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {data.profile.headline}
+        </motion.p>
+        <motion.div
+          className="hero__actions"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
           <a className="button button--primary" href="#projects">
-            <BriefcaseBusiness size={18} />
             View Projects
           </a>
           <a className="button button--ghost" href={data.profile.cv} target="_blank" rel="noreferrer">
-            <Download size={18} />
             Download CV
           </a>
-        </div>
-
-        <p className="hero__focus">{focus}</p>
+        </motion.div>
+        <motion.div
+          className="hero__focus"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {data.focusAreas.slice(0, 4).map((area) => (
+            <span key={area}>{area}</span>
+          ))}
+        </motion.div>
       </div>
-
-      <aside className="profile-panel-wrap reveal">
-        <TiltedCard rotateAmplitude={4.5} scaleOnHover={1.01} className="profile-tilt-card">
-          <div className="profile-panel">
-            <div className="portrait-shell">
-              <img src={data.profile.image} alt={data.profile.name} />
-            </div>
-            <div className="profile-panel__meta">
-              <div>
-                <span>Based in</span>
-                <strong>{data.profile.location}</strong>
-              </div>
-              <div>
-                <span>Current focus</span>
-                <strong>AI systems, research, and competition builds</strong>
-              </div>
-            </div>
-          </div>
-        </TiltedCard>
-      </aside>
+      <motion.aside
+        className="hero__photo-col"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <img className="hero__photo" src={data.profile.image} alt={data.profile.name} />
+      </motion.aside>
     </main>
   );
 }
@@ -223,13 +264,13 @@ function Metrics({ metrics }) {
 
 function About({ data }) {
   return (
-    <Section eyebrow="Profile" title="Built through competitions, research, and lab leadership.">
+    <Section eyebrow="About" title="Competitions, research, and real systems - not just notebooks.">
       <div className="about-layout">
         <div className="about-copy">
           <ScrollReveal as="p">
-            I build AI systems that go beyond notebooks: models connected to data pipelines,
-            dashboards, APIs, and decision workflows. My work is shaped by national competitions,
-            research projects, and Big Data Lab leadership.
+            I build AI that ships. Models connected to data pipelines, dashboards, APIs, and
+            decision workflows - shaped by national competitions, research projects, and Big
+            Data Lab leadership at Telkom University.
           </ScrollReveal>
           <div className="focus-grid">
             {data.focusAreas.map((area, index) => (
@@ -270,7 +311,7 @@ function Projects({ projects }) {
   const visibleProjects = projectsForGroup.slice(0, 6);
 
   return (
-    <Section id="projects" eyebrow="Selected Work" title="Featured projects with proof of depth." className="section--wide">
+    <Section id="projects" eyebrow="Selected Work" title="Projects with proof of depth." className="section--wide">
       <ScrollReveal className="project-tabs" y={12}>
         {projectGroups.map((group) => (
           <button
@@ -287,8 +328,8 @@ function Projects({ projects }) {
 
       <div className="project-grid" key={activeGroup}>
         {visibleProjects.map((project, index) => (
-          <ScrollReveal className="project-reveal" delay={index * 90} duration={900} y={34} key={project.title}>
-            <SpotlightCard className="project-card" spotlightColor="rgba(85, 215, 255, 0.18)">
+            <ScrollReveal className="project-reveal" delay={100 + index * 80} duration={800} y={28} key={project.title}>
+            <SpotlightCard className="project-card" spotlightColor="rgba(16, 185, 129, 0.14)">
               {project.image ? (
                 <div className="project-card__media">
                   <img src={project.image} alt={`${project.title} preview`} loading="lazy" decoding="async" />
@@ -352,14 +393,56 @@ function GithubIcon() {
 }
 
 function Experience({ experience }) {
+  const timelineRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const rect = el.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const visibleTop = Math.max(0, -rect.top);
+          const totalHeight = rect.height;
+          const visibleHeight = windowHeight - rect.top;
+          const pct = Math.min(1, Math.max(0, (visibleTop + visibleHeight * 0.5) / totalHeight));
+          setProgress(pct);
+        }
+      },
+      { threshold: Array.from({ length: 20 }, (_, i) => i / 20) }
+    );
+
+    observer.observe(el);
+
+    const handleScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const visibleTop = Math.max(0, -rect.top);
+      const totalHeight = rect.height;
+      const visibleHeight = windowHeight - rect.top;
+      const pct = Math.min(1, Math.max(0, (visibleTop + visibleHeight * 0.5) / totalHeight));
+      setProgress(pct);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Section id="experience" eyebrow="Experience" title="Academic, research, and leadership track.">
-      <div className="timeline">
+    <Section id="experience" eyebrow="Experience" title="Academic, research, and leadership.">
+      <div className="timeline" ref={timelineRef}>
+        <div className="timeline-progress" style={{ '--progress': progress }} />
         {experience.map((item, index) => (
           <ScrollReveal
             as="article"
             className="timeline-item"
-            delay={index * 90}
+            delay={index * 100}
             key={`${item.title}-${item.period}`}
           >
             <div className="timeline-item__marker" />
@@ -378,10 +461,10 @@ function Experience({ experience }) {
 
 function Skills({ skills, techLogos }) {
   return (
-    <Section id="skills" eyebrow="Capabilities" title="A practical stack for AI systems.">
+    <Section id="skills" eyebrow="Stack" title="Tools I reach for daily.">
       <div className="skills-grid">
         {Object.entries(skills).map(([group, items], index) => (
-          <ScrollReveal as="article" className="skill-card" delay={index * 90} key={group}>
+          <ScrollReveal as="article" className="skill-card" delay={100 + index * 80} key={group}>
             <div className="skill-card__icon">
               <Code2 size={20} />
             </div>
@@ -406,9 +489,9 @@ function Contact({ data }) {
     <ScrollReveal as="section" id="contact" className="contact">
       <div className="contact__copy">
         <span className="eyebrow">Contact</span>
-        <h2>Let&apos;s build something with data.</h2>
+        <h2>Let&apos;s build something together.</h2>
         <p>
-          Open for AI projects, research collaboration, competition work, and data science
+          Open for AI projects, research collaborations, competition teams, and data science
           opportunities.
         </p>
       </div>
@@ -525,6 +608,27 @@ export default function App() {
   const [adminOpen, setAdminOpen] = useState(false);
   const isDev = import.meta.env.DEV;
 
+  const [theme, setTheme] = useState(() => {
+    try {
+      const stored = localStorage.getItem("faaris-theme");
+      if (stored === "light" || stored === "dark") return stored;
+    } catch {}
+    if (window.matchMedia?.("(prefers-color-scheme: light)").matches) return "light";
+    return "dark";
+  });
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      try { localStorage.setItem("faaris-theme", next); } catch {}
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
@@ -534,7 +638,7 @@ export default function App() {
 
   return (
     <>
-      <Header data={data} onAdmin={() => setAdminOpen(true)} />
+      <Header onAdmin={() => setAdminOpen(true)} theme={theme} onToggleTheme={toggleTheme} />
       <Hero data={data} />
       <Metrics metrics={data.metrics} />
       <About data={data} />
@@ -542,7 +646,7 @@ export default function App() {
       <Experience experience={data.experience} />
       <Skills skills={data.skills} techLogos={data.techLogos || portfolioData.techLogos} />
       <Contact data={data} />
-      <footer className="footer">Built for practical AI systems, research stories, and competition proof.</footer>
+      <footer className="footer">AI systems, research stories, and competition proof - built by Faaris Khairrudin.</footer>
       {isDev && adminOpen ? (
         <AdminPanel
           data={data}
