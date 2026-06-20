@@ -1,7 +1,7 @@
 export const portfolioData = {
   profile: {
     name: "Faaris Khairrudin",
-    role: "AI Engineer & Data Scientist",
+    role: "Data Science Student & AI Practitioner",
     location: "Bandung / Bekasi, Indonesia",
     email: "faariskhairrudin@gmail.com",
     github: "https://github.com/FaarisKhairrudin",
