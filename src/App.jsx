@@ -264,7 +264,7 @@ function About({ data }) {
 }
 
 function Projects({ projects }) {
-  const projectGroups = ["Featured", "AI & ML", "Data & Analytics", "Automation & Systems"];
+  const projectGroups = ["Featured", "AI & Deep Learning", "Forecasting & Machine Learning", "Data & Automation"];
   const [activeGroup, setActiveGroup] = useState(projectGroups[0]);
   const projectsForGroup = projects.filter((project) => (project.categories || ["Featured"]).includes(activeGroup));
   const visibleProjects = projectsForGroup.slice(0, 6);
@@ -328,7 +328,7 @@ function Projects({ projects }) {
       <ScrollReveal className="projects-cta">
         <a
           className="projects-cta__link"
-          href="https://github.com/FaarisKhairrudin?tab=repositories"
+          href="https://github.com/FaarisKhairrudin"
           target="_blank"
           rel="noreferrer"
         >

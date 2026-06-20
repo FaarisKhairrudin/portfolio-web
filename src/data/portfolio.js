@@ -45,7 +45,7 @@ export const portfolioData = {
       stack: ["Whisper", "BLIP-2", "BERTopic", "GLiNER", "Qwen", "HuggingFace", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/social-video-multimodal-analysis",
       type: "Multimodal AI",
-      categories: ["Featured", "AI & ML", "Automation & Systems"],
+      categories: ["Featured", "AI & Deep Learning"],
     },
     {
       title: "IDX Smart Rebalance",
@@ -56,7 +56,7 @@ export const portfolioData = {
       stack: ["Python", "FastAPI", "Stable-Baselines3", "NeuralForecast", "DRL"],
       link: "https://github.com/FaarisKhairrudin/idx-smart-rebalance",
       type: "Financial AI",
-      categories: ["Featured", "AI & ML", "Data & Analytics", "Automation & Systems"],
+      categories: ["Featured", "AI & Deep Learning"],
     },
     {
       title: "PETI Detection Research",
@@ -67,7 +67,7 @@ export const portfolioData = {
       stack: ["Python", "Google Earth Engine", "Satellite Imagery", "Geospatial ML"],
       link: "",
       type: "Research",
-      categories: ["Featured", "AI & ML"],
+      categories: ["Featured", "Forecasting & Machine Learning"],
     },
     {
       title: "Crowd Detection & Counting",
@@ -78,7 +78,7 @@ export const portfolioData = {
       stack: ["PyTorch", "CSRNet", "VGG-16", "Albumentations"],
       link: "https://github.com/Frenwin/Hology-8.0-Crowd-Detection",
       type: "Computer Vision",
-      categories: ["Featured", "AI & ML"],
+      categories: ["Featured", "AI & Deep Learning"],
     },
     {
       title: "Smart Face Anti-Spoofing",
@@ -89,7 +89,7 @@ export const portfolioData = {
       stack: ["PyTorch", "Transformers", "DINOv3", "Focal Loss"],
       link: "https://github.com/FaarisKhairrudin/Smart-Face-AntiSpoofing",
       type: "AI Security",
-      categories: ["Featured", "AI & ML"],
+      categories: ["Featured", "AI & Deep Learning"],
     },
     {
       title: "SQL Data Warehouse Project",
@@ -100,7 +100,7 @@ export const portfolioData = {
       stack: ["SQL Server", "ETL", "Data Modeling", "Medallion Architecture"],
       link: "https://github.com/FaarisKhairrudin/SQL-Data-Warehouse-Project",
       type: "Data Engineering",
-      categories: ["Featured", "Data & Analytics", "Automation & Systems"],
+      categories: ["Data & Automation"],
     },
     {
       title: "Lenta AI Operations System",
@@ -111,7 +111,7 @@ export const portfolioData = {
       stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/lenta-ai-operations-system",
       type: "AI Automation",
-      categories: ["Featured", "Automation & Systems", "Data & Analytics"],
+      categories: ["Featured", "AI & Deep Learning", "Data & Automation"],
     },
     {
       title: "DATAVIDIA ISPU Prediction",
@@ -122,7 +122,7 @@ export const portfolioData = {
       stack: ["Python", "NeuralForecast", "TFT", "Pandas", "Scikit-learn"],
       link: "",
       type: "Forecasting",
-      categories: ["AI & ML", "Data & Analytics"],
+      categories: ["Forecasting & Machine Learning"],
     },
     {
       title: "Bank Customer Deposit Prediction",
@@ -133,7 +133,7 @@ export const portfolioData = {
       stack: ["Python", "XGBoost", "LightGBM", "CatBoost", "Ensemble"],
       link: "https://github.com/FaarisKhairrudin/bank-customer-deposit-prediction",
       type: "Tabular ML",
-      categories: ["AI & ML", "Data & Analytics"],
+      categories: ["Forecasting & Machine Learning"],
     },
     {
       title: "Global Food Price Forecasting",
@@ -144,7 +144,29 @@ export const portfolioData = {
       stack: ["Python", "Scikit-learn", "Time Series", "Forecasting"],
       link: "",
       type: "Forecasting",
-      categories: ["AI & ML", "Data & Analytics"],
+      categories: ["Forecasting & Machine Learning"],
+    },
+    {
+      title: "Narapangan",
+      badge: "Applied Forecasting System",
+      image: "/assets/project/project-placeholder.svg",
+      description:
+        "A web app predicting Bandung red chili prices for F&B SMEs, combining PIHPS market data, NASA POWER weather, Hijri calendar features, and N-BEATSx/N-HiTS forecasting models to generate procurement signals.",
+      stack: ["Python", "N-BEATSx", "N-HiTS", "Forecasting", "Web App"],
+      link: "https://github.com/FaarisKhairrudin/Prescriptive-food-price-intelligence",
+      type: "Forecasting",
+      categories: ["Forecasting & Machine Learning"],
+    },
+    {
+      title: "COPPA Violation Detection",
+      badge: "FindIT UGM — Data Science Track",
+      image: "/assets/project/project-placeholder.svg",
+      description:
+        "A classification project detecting mobile apps potentially violating COPPA using app metadata, exploratory data analysis, feature engineering, and ensemble ML models.",
+      stack: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering", "EDA"],
+      link: "https://github.com/FaarisKhairrudin/coppa-violation-detection",
+      type: "Classification",
+      categories: ["Forecasting & Machine Learning"],
     },
   ],
   experience: [
