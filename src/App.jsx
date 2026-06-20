@@ -264,12 +264,12 @@ function Metrics({ metrics }) {
 
 function About({ data }) {
   return (
-    <Section eyebrow="About" title="Competitions, research, and real systems - not just notebooks.">
+    <Section eyebrow="About" title="Built through competitions, research, and production systems.">
       <div className="about-layout">
         <div className="about-copy">
           <ScrollReveal as="p">
             I build AI that ships. Models connected to data pipelines, dashboards, APIs, and
-            decision workflows - shaped by national competitions, research projects, and Big
+            decision workflows, shaped by national competitions, research projects, and Big
             Data Lab leadership at Telkom University.
           </ScrollReveal>
           <div className="focus-grid">
@@ -315,7 +315,7 @@ function Projects({ projects }) {
       <ScrollReveal className="project-tabs" y={12}>
         {projectGroups.map((group) => (
           <button
-            className={`project-tab ${activeGroup === group ? "is-active" : ""}`}
+            className={`project-tab ${group === "Featured" ? "is-featured" : ""} ${activeGroup === group ? "is-active" : ""}`}
             type="button"
             onClick={() => setActiveGroup(group)}
             key={group}
