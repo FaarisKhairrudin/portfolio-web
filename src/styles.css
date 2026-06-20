@@ -499,29 +499,12 @@ h3 {
   padding-right: 4px;
 }
 
-.project-tab.is-featured::before {
-  content: "\2605";
-  font-size: 0.7rem;
-  color: var(--accent);
-  opacity: 0.5;
-  transition: opacity 200ms ease, color 200ms ease;
-}
-
-.project-tab.is-featured:hover::before {
-  opacity: 1;
-}
-
 .project-tab.is-featured.is-active {
   color: var(--accent);
   font-weight: 600;
   border-bottom-color: var(--accent);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-}
-
-.project-tab.is-featured.is-active::before {
-  opacity: 1;
-  color: var(--accent);
 }
 
 .project-tab small {

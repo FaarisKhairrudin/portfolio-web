@@ -320,7 +320,7 @@ function Projects({ projects }) {
             onClick={() => setActiveGroup(group)}
             key={group}
           >
-            <span>{group}</span>
+            <span>{group === "Featured" ? "★ Featured" : group}</span>
             <small>{Math.min(projects.filter((project) => (project.categories || ["Featured"]).includes(group)).length, 6)}</small>
           </button>
         ))}
