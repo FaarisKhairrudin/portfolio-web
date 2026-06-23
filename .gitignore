@@ -4,5 +4,7 @@ README_GITHUB.md
 node_modules/
 dist/
 CORE_INFORMATION/
+.opencode/
+
 # Preview HTML files (development reference only)
 public/*.html
