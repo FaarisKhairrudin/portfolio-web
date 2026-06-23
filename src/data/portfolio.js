@@ -7,7 +7,7 @@ export const portfolioData = {
     github: "https://github.com/FaarisKhairrudin",
     linkedin: "https://www.linkedin.com/in/faaris-khairrudin-a10209310",
     instagram: "https://www.instagram.com/faaris_khairrudin",
-    cv: "/cv_indo_FaarisKhairrudin.pdf",
+    cv: "/cv_FaarisKhairrudin.pdf",
     image: "/formal_image.jpeg",
     headline:
       "From raw data to production AI - I build, compete, and ship.",
@@ -89,7 +89,7 @@ export const portfolioData = {
       stack: ["PyTorch", "Transformers", "DINOv3", "Focal Loss"],
       link: "https://github.com/FaarisKhairrudin/Smart-Face-AntiSpoofing",
       type: "AI Security",
-      categories: ["Featured", "AI & Deep Learning"],
+      categories: ["AI & Deep Learning"],
     },
     {
       title: "SQL Data Warehouse Project",
@@ -116,7 +116,7 @@ export const portfolioData = {
     {
       title: "DATAVIDIA ISPU Prediction",
       badge: "DATAVIDIA 2026 Preliminary",
-      image: "/assets/project/project-placeholder.svg",
+      image: "/assets/project/DATAVIDIA-ISPU-Prediction.png",
       description:
         "A Jakarta air-quality forecasting pipeline that predicts ISPU categories using multivariate time-series modeling and optimized classification thresholds.",
       stack: ["Python", "NeuralForecast", "TFT", "Pandas", "Scikit-learn"],
@@ -138,18 +138,18 @@ export const portfolioData = {
     {
       title: "Narapangan",
       badge: "Applied Forecasting System",
-      image: "/assets/project/project-placeholder.svg",
+      image: "/assets/project/Narapangan.png",
       description:
         "A web app predicting Bandung red chili prices for F&B SMEs, combining PIHPS market data, NASA POWER weather, Hijri calendar features, and N-BEATSx/N-HiTS forecasting models to generate procurement signals.",
       stack: ["Python", "N-BEATSx", "N-HiTS", "Forecasting", "Web App"],
       link: "https://github.com/FaarisKhairrudin/Prescriptive-food-price-intelligence",
       type: "Forecasting",
-      categories: ["Forecasting & Machine Learning"],
+      categories: ["Featured", "Forecasting & Machine Learning"],
     },
     {
       title: "COPPA Violation Detection",
       badge: "FindIT UGM - Data Science Track",
-      image: "/assets/project/project-placeholder.svg",
+      image: "/assets/project/COPPA-Violation-Detection.png",
       description:
         "A classification project detecting mobile apps potentially violating COPPA using app metadata, exploratory data analysis, feature engineering, and ensemble ML models.",
       stack: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering", "EDA"],

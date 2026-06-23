@@ -1,13 +1,5 @@
-<svg width="960" height="600" viewBox="0 0 960 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="960" height="600" rx="28" fill="#071011"/>
-  <rect x="1" y="1" width="958" height="598" rx="27" stroke="#6FF0C6" stroke-opacity="0.18" stroke-width="2"/>
-  <circle cx="770" cy="110" r="220" fill="#55D7FF" fill-opacity="0.12"/>
-  <circle cx="180" cy="520" r="240" fill="#6FF0C6" fill-opacity="0.10"/>
-  <path d="M196 220H764" stroke="#EFFAF7" stroke-opacity="0.10" stroke-width="2"/>
-  <path d="M196 300H630" stroke="#EFFAF7" stroke-opacity="0.10" stroke-width="2"/>
-  <path d="M196 380H710" stroke="#EFFAF7" stroke-opacity="0.10" stroke-width="2"/>
-  <rect x="196" y="164" width="112" height="32" rx="16" fill="#6FF0C6" fill-opacity="0.16"/>
-  <rect x="196" y="428" width="164" height="42" rx="21" fill="#55D7FF" fill-opacity="0.14"/>
-  <text x="196" y="260" fill="#EFFAF7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="52" font-weight="800">Project Preview</text>
-  <text x="196" y="330" fill="#A6B9B5" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="600">Visual asset coming soon</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="var(--bg-soft, #0D1711)"/>
+  <text x="200" y="140" text-anchor="middle" fill="var(--muted, #5A7D6E)" font-family="system-ui" font-size="16">Project Preview</text>
+  <text x="200" y="165" text-anchor="middle" fill="var(--subtle, #5A7D6E)" font-family="system-ui" font-size="12">Image coming soon</text>
 </svg>

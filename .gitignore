@@ -4,3 +4,5 @@ README_GITHUB.md
 node_modules/
 dist/
 CORE_INFORMATION/
+# Preview HTML files (development reference only)
+public/*.html

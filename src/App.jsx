@@ -491,8 +491,8 @@ function Contact({ data }) {
         <span className="eyebrow">Contact</span>
         <h2>Let&apos;s build something together.</h2>
         <p>
-          Open for AI projects, research collaborations, competition teams, and data science
-          opportunities.
+          Open for AI Engineer, Data Scientist, Data Analyst, Data Engineer roles
+          — anything data-related.
         </p>
       </div>
       <div className="contact__actions">
