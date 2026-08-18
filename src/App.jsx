@@ -14,11 +14,13 @@ import {
   Trophy,
   X,
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import BounceCards from "@/components/BounceCards/BounceCards.jsx";
 import CountUp from "@/components/CountUp/CountUp.jsx";
+import GithubIcon from "@/components/GithubIcon/GithubIcon.jsx";
 import LogoLoop from "@/components/LogoLoop/LogoLoop.jsx";
 import PillNav from "@/components/PillNav/PillNav.jsx";
+import ProjectModal from "@/components/ProjectModal/ProjectModal.jsx";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal.jsx";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard.jsx";
 import { portfolioData } from "./data/portfolio.js";
@@ -264,11 +266,11 @@ function Metrics({ metrics }) {
 
 function About({ data }) {
   return (
-    <Section eyebrow="About" title="Built through competitions, research, and production systems.">
+    <Section eyebrow="About" title="Shaped by competitions, research, and production systems.">
       <div className="about-layout">
         <div className="about-copy">
           <ScrollReveal as="p">
-            I build AI that ships. Models connected to data pipelines, dashboards, APIs, and
+            I build AI that ships: models connected to data pipelines, dashboards, APIs, and
             decision workflows, shaped by national competitions, research projects, and Big
             Data Lab leadership at Telkom University.
           </ScrollReveal>
@@ -307,11 +309,20 @@ function About({ data }) {
 function Projects({ projects }) {
   const projectGroups = ["Featured", "AI & Deep Learning", "Forecasting & Machine Learning", "Data & Automation"];
   const [activeGroup, setActiveGroup] = useState(projectGroups[0]);
+  const [activeProject, setActiveProject] = useState(null);
   const projectsForGroup = projects.filter((project) => (project.categories || ["Featured"]).includes(activeGroup));
   const visibleProjects = projectsForGroup.slice(0, 6);
 
   return (
-    <Section id="projects" eyebrow="Selected Work" title="Projects with proof of depth." className="section--wide">
+    <section id="projects" className="section section--wide section--centered">
+      <div className="projects-panel">
+      <ScrollReveal className="section__heading">
+        <span className="eyebrow">Selected Work</span>
+        <h2>Browse projects by category.</h2>
+      </ScrollReveal>
+      <ScrollReveal className="projects-hint" y={8}>
+        <p>Filter by area below, then click any project to read its full story with the technical details.</p>
+      </ScrollReveal>
       <ScrollReveal className="project-tabs" y={12}>
         {projectGroups.map((group) => (
           <button
@@ -329,7 +340,20 @@ function Projects({ projects }) {
       <div className="project-grid" key={activeGroup}>
         {visibleProjects.map((project, index) => (
             <ScrollReveal className="project-reveal" delay={100 + index * 80} duration={800} y={28} key={project.title}>
-            <SpotlightCard className="project-card" spotlightColor="rgba(16, 185, 129, 0.14)">
+            <SpotlightCard
+              className="project-card"
+              spotlightColor="rgba(16, 185, 129, 0.14)"
+              onClick={() => setActiveProject(project)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveProject(project);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open story for ${project.title}`}
+            >
               {project.image ? (
                 <div className="project-card__media">
                   <img src={project.image} alt={`${project.title} preview`} loading="lazy" decoding="async" />
@@ -341,7 +365,7 @@ function Projects({ projects }) {
               </div>
               <h3>{project.title}</h3>
               <p className="project-card__badge">{project.badge}</p>
-              <p>{project.description}</p>
+              <p>{project.summary}</p>
               <div className="project-card__stack">
                 <span className="project-card__stack-label">Stack</span>
                 <div className="stack-list">
@@ -350,21 +374,14 @@ function Projects({ projects }) {
                   ))}
                 </div>
               </div>
-              {project.link ? (
-                <a className="repo-link" href={project.link} target="_blank" rel="noreferrer">
-                  <GithubIcon />
-                  View Details on GitHub
-                  <ArrowUpRight size={16} />
-                </a>
-              ) : (
-                <span className="repo-link repo-link--muted" aria-disabled="true">
-                  <GithubIcon />
-                  Repository unavailable
-                </span>
-              )}
+              <span className="project-card__story-link">
+                Read the story
+                <ArrowUpRight size={15} />
+              </span>
             </SpotlightCard>
           </ScrollReveal>
         ))}
+      </div>
       </div>
       <ScrollReveal className="projects-cta">
         <a
@@ -377,18 +394,13 @@ function Projects({ projects }) {
           <GithubIcon />
         </a>
       </ScrollReveal>
-    </Section>
-  );
-}
 
-function GithubIcon() {
-  return (
-    <svg className="github-mark" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        fill="currentColor"
-        d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.36 6.84 9.72.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.26 9.26 0 0 1 12 7c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
-      />
-    </svg>
+      <AnimatePresence>
+        {activeProject ? (
+          <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
+        ) : null}
+      </AnimatePresence>
+    </section>
   );
 }
 
@@ -489,10 +501,10 @@ function Contact({ data }) {
     <ScrollReveal as="section" id="contact" className="contact">
       <div className="contact__copy">
         <span className="eyebrow">Contact</span>
-        <h2>Let&apos;s build something together.</h2>
+        <h2>Got a data problem? Let&apos;s solve it.</h2>
         <p>
-          Open for AI Engineer, Data Scientist, Data Analyst, Data Engineer roles
-          — anything data-related.
+          Open to AI Engineer, Data Scientist, Data Analyst, and Data Engineer roles,
+          plus freelance AI and data projects.
         </p>
       </div>
       <div className="contact__actions">
