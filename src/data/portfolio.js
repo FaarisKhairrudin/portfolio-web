@@ -41,11 +41,23 @@ export const portfolioData = {
     {
       title: "Social Video Intelligence",
       badge: "4th Place - Satria Data 2025",
-      image: "/assets/project/social-video-intelligence.webp",
+      image: "/assets/project/Social Video Insight/1.png",
+      images: [
+        "/assets/project/Social Video Insight/1.png",
+        "/assets/project/Social Video Insight/2.png",
+        "/assets/project/Social Video Insight/3.png",
+        "/assets/project/Social Video Insight/4.png",
+        "/assets/project/Social Video Insight/5.png",
+        "/assets/project/Social Video Insight/6.png",
+        "/assets/project/Social Video Insight/7.png",
+        "/assets/project/Social Video Insight/8.png",
+        "/assets/project/Social Video Insight/9.png",
+      ],
       summary:
         "Automatically turns social media videos into structured insight: transcripts, topics, key entities, and sentiment, so analysts get answers without watching hours of footage.",
       stack: ["Whisper", "BLIP-2", "BERTopic", "GLiNER", "Qwen", "HuggingFace", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/social-video-multimodal-analysis",
+      demo: "https://faariskhairrudin.github.io/social-video-insights-dashboard/",
       type: "Multimodal AI",
       categories: ["Featured", "AI & Deep Learning"],
       star: {
@@ -67,7 +79,14 @@ export const portfolioData = {
     {
       title: "Lenta AI Operations System",
       badge: "AI Agent & Business Automation",
-      image: "/assets/project/lenta-ai-operations-system.webp",
+      image: "/assets/project/Lenta AI/1.png",
+      images: [
+        "/assets/project/Lenta AI/1.png",
+        "/assets/project/Lenta AI/2.png",
+        "/assets/project/Lenta AI/3.png",
+        "/assets/project/Lenta AI/4.png",
+        "/assets/project/Lenta AI/5.png",
+      ],
       summary:
         "A WhatsApp AI assistant that runs customer service and stock management for a water and gas delivery business, plus a dashboard for the owner.",
       stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
@@ -257,26 +276,36 @@ export const portfolioData = {
     },
     {
       title: "Narapangan",
-      badge: "Applied Forecasting System",
+      badge: "Capstone Project — Telkom University",
       image: "/assets/project/Narapangan.png",
       summary:
-        "Tells F&B owners whether Bandung red chili prices will rise in the next 4 weeks, so they know when to stock up before prices spike.",
-      stack: ["Python", "N-BEATSx", "N-HiTS", "Forecasting", "Web App"],
+        "An end-to-end AI system predicting commodity food prices 4 weeks ahead in Bandung and turning forecasts into prescriptive procurement advice for F&B MSMEs via Gemini 2.5 Flash.",
+      stack: [
+        "Python",
+        "NeuralForecast",
+        "N-BEATSx",
+        "Gemini 2.5 Flash",
+        "Playwright",
+        "React",
+        "Recharts",
+        "SQLite",
+      ],
       link: "https://github.com/FaarisKhairrudin/Prescriptive-food-price-intelligence",
-      type: "Forecasting",
-      categories: ["Featured", "Forecasting & Machine Learning"],
+      type: "Forecasting & GenAI",
+      categories: ["Featured", "Forecasting & Machine Learning", "AI & Deep Learning"],
       star: {
         situation:
-          "F&B SMEs in Bandung buy chili at market prices, so a sudden price spike directly cuts their margins. Procurement is usually guesswork.",
-        task: "Build a web app that predicts chili prices weeks ahead and turns the forecast into a procurement signal.",
+          "F&B MSMEs in Bandung struggle with volatile commodity prices (chili, shallots, garlic, eggs), where procurement guesswork directly cuts profit margins.",
+        task: "Build an end-to-end system that automates daily market & weather ingestion, forecasts prices 4 weeks ahead, and provides actionable procurement advice using LLMs.",
         action: [
-          "Ingested daily PIHPS market prices for Bandung red chili.",
-          "Added external signals: NASA POWER weather from Garut and Hijri calendar features (demand spikes around holidays).",
-          "Trained N-BEATSx and N-HiTS forecasting models and served the best stored model.",
-          "Generated a 4-week price forecast plus a buy or no-buy procurement signal in a web app.",
+          "Built automated daily pipelines using Playwright (PIHPS market prices) and NASA POWER API (Garut weather), plus Hijri holiday calendar features.",
+          "Engineered exogenous climate lags: found 8-week temperature and 13-week humidity lags strongly correlate with Bandung price dynamics.",
+          "Benchmarked 5 deep time-series models: N-BEATSx achieved best accuracy (MAE Rp 3,030, MAPE 6.33%) and N-HiTS achieved 93.3% Directional Accuracy.",
+          "Integrated Gemini 2.5 Flash to generate plain-language price fluctuation drivers and personalized procurement schedules based on MSME capacity.",
+          "Engineered an interactive AI Consultation Chat with domain guardrails and fallback chains, served through a Python REST API and React 19 dashboard.",
         ],
         result:
-          "A practical applied-forecasting system born from the ADIKARA 2024 finalist project, showing time-series forecasting with real business value.",
+          "Delivered a production-ready AI pipeline combining deep time-series forecasting, climate exogenous features, and Generative AI to optimize food procurement for MSMEs.",
       },
     },
     {

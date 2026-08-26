@@ -53,6 +53,7 @@ function normalizePortfolioData(data) {
         ...project,
         ...savedProject,
         image: project.image,
+        images: project.images,
         categories: project.categories,
       };
     }),
