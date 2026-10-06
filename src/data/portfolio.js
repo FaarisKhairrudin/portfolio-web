@@ -92,7 +92,7 @@ export const portfolioData = {
       stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
       link: "https://github.com/FaarisKhairrudin/lenta-ai-operations-system",
       type: "AI Automation",
-      categories: ["Featured", "AI & Deep Learning", "Data & Automation"],
+      categories: ["Featured", "AI Automation"],
       star: {
         situation:
           "A busy depot's operations were drowning: customers messaged for orders and prices at all hours, while stock and order records were tracked by hand.",
@@ -106,6 +106,39 @@ export const portfolioData = {
         ],
         result:
           "Customer service and stock management now run on autopilot: precise order capture, automatic stock deduction, low-stock alerts, and a monitoring dashboard for daily rekap, all tied to real business logic.",
+      },
+    },
+    {
+      title: "ARIA Property Matchmaker",
+      badge: "AI Sales Agent & WhatsApp Automation",
+      image: "/assets/project/ARIA/1.jpg",
+      images: [
+        "/assets/project/ARIA/1.jpg",
+        "/assets/project/ARIA/2.jpg",
+        "/assets/project/ARIA/3.jpg",
+        "/assets/project/ARIA/4.jpg",
+        "/assets/project/ARIA/5.jpg",
+        "/assets/project/ARIA/6.jpg",
+        "/assets/project/ARIA/7.jpg",
+      ],
+      summary:
+        "A WhatsApp AI sales agent that answers property questions from official brochures, sends unit photos, books site surveys, simulates KPR installments with PDF, and follows up leads automatically.",
+      stack: ["n8n", "OpenAI", "pgvector", "PostgreSQL", "GOWA", "Google Calendar"],
+      link: "",
+      type: "AI Automation",
+      categories: ["Featured", "AI & Deep Learning", "AI Automation"],
+      star: {
+        situation:
+          "Property prospects chat on WhatsApp at all hours asking about specs, prices, installments, photos, and survey slots, while human CS cannot reply instantly every time and manual follow-up lets warm leads go cold.",
+        task: "Build ARIA, a WhatsApp AI sales agent that responds instantly like a human salesperson: answering from official brochures, sending the right unit photos, booking surveys, simulating KPR, scoring every lead, and handing over to human CS when needed.",
+        action: [
+          "Built the main agent flow on n8n with instant webhook reply, duplicate-message guard, AI/human mode switch, and emotion classification that routes buyers who ask for a human straight to CS.",
+          "Grounded every answer with RAG over brochure PDFs (98 chunks in pgvector with Gemini embeddings), so specs, prices, and installments come from official documents instead of hallucinations.",
+          "Equipped the agent with tools: keyword-matched unit photo sender, survey booking via Google Calendar recorded to the CRM sheet, KPR annuity simulation delivered as PDF over WhatsApp, and automatic lead scoring (hot/warm/cold, 0-100) with per-number chat memory.",
+          "Automated the full lead lifecycle: H+1/H+2 follow-ups, survey reminders 2 hours before, a daily report for the manager, and a centralized error handler with retries on external calls.",
+        ],
+        result:
+          "A complete WhatsApp sales pipeline on autopilot: instant brochure-accurate answers, faster survey bookings, no lead left behind, and human CS only stepping in where truly needed — verified live answering specs and installments end to end.",
       },
     },
     {
@@ -164,7 +197,7 @@ export const portfolioData = {
       stack: ["PyTorch", "CSRNet", "VGG-16", "Albumentations"],
       link: "https://github.com/Frenwin/Hology-8.0-Crowd-Detection",
       type: "Computer Vision",
-      categories: ["Featured", "AI & Deep Learning"],
+      categories: ["AI & Deep Learning"],
       star: {
         situation:
           "Counting people in highly congested scenes (rallies, stadiums, transit hubs) fails with standard object detection because bodies occlude each other.",
@@ -211,7 +244,7 @@ export const portfolioData = {
       stack: ["SQL Server", "ETL", "Data Modeling", "Medallion Architecture"],
       link: "https://github.com/FaarisKhairrudin/SQL-Data-Warehouse-Project",
       type: "Data Engineering",
-      categories: ["Data & Automation"],
+      categories: ["Data Engineering & Analytics"],
       star: {
         situation:
           "Raw sales data from ERP and CRM systems is inconsistent: duplicated rows, mixed formats, and mismatched IDs make analysis unreliable.",
@@ -340,7 +373,7 @@ export const portfolioData = {
       stack: ["n8n", "Gemini 2.5 Flash", "Gmail", "Google Drive", "Google Sheets", "Telegram"],
       link: "",
       type: "AI Automation",
-      categories: ["Data & Automation"],
+      categories: ["AI Automation"],
       star: {
         situation:
           "Businesses receive many invoices or financial notes via email that must be extracted, classified, and rekap-ed manually into spreadsheets.",
@@ -363,7 +396,7 @@ export const portfolioData = {
       stack: ["n8n", "DeepSeek LLM", "Gmail", "Telegram", "Google Sheets"],
       link: "",
       type: "AI Automation",
-      categories: ["Data & Automation"],
+      categories: ["AI Automation"],
       star: {
         situation:
           "Recording daily spending from digital bank receipts (QRIS, BI Fast, Mandiri transfers) is time-consuming and often skipped.",
@@ -386,7 +419,7 @@ export const portfolioData = {
       stack: ["n8n", "Gmail", "GOWA", "Google Sheets"],
       link: "",
       type: "AI Automation",
-      categories: ["Data & Automation"],
+      categories: ["AI Automation"],
       star: {
         situation:
           "Client follow-up for overdue invoices often gets neglected because checking is manual, while aggressive automated collection risks burning relationships with spam-like messages.",
@@ -409,7 +442,7 @@ export const portfolioData = {
       stack: ["n8n", "Apify", "DeepSeek LLM", "Telegram", "GOWA", "Google Sheets"],
       link: "",
       type: "AI Automation",
-      categories: ["Data & Automation"],
+      categories: ["AI Automation"],
       star: {
         situation:
           "B2B marketing teams waste hours finding leads manually, and generic cold outreach converts poorly.",

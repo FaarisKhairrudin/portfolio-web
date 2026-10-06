@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Check,
   Code2,
+  Images,
   Mail,
   MapPin,
   Moon,
@@ -30,10 +31,6 @@ const STORAGE_KEY = "faaris-portfolio-data";
 function normalizePortfolioData(data) {
   const metricDefaults = portfolioData.metrics.reduce((acc, metric) => {
     acc[metric.label] = metric;
-    return acc;
-  }, {});
-  const projectDefaults = portfolioData.projects.reduce((acc, project) => {
-    acc[project.title] = project;
     return acc;
   }, {});
 
@@ -307,12 +304,44 @@ function About({ data }) {
   );
 }
 
+export const PROJECT_GROUP_SLUGS = {
+  "featured": "Featured",
+  "ai-deep-learning": "AI & Deep Learning",
+  "forecasting-machine-learning": "Forecasting & Machine Learning",
+  "ai-automation": "AI Automation",
+  "data-engineering-analytics": "Data Engineering & Analytics",
+};
+
+export function slugifyProjectGroup(group) {
+  return Object.keys(PROJECT_GROUP_SLUGS).find(
+    (slug) => PROJECT_GROUP_SLUGS[slug] === group
+  ) || "featured";
+}
+
 function Projects({ projects }) {
-  const projectGroups = ["Featured", "AI & Deep Learning", "Forecasting & Machine Learning", "Data & Automation"];
-  const [activeGroup, setActiveGroup] = useState(projectGroups[0]);
+  const projectGroups = Object.values(PROJECT_GROUP_SLUGS);
+  const [activeGroup, setActiveGroup] = useState(() => {
+    const hash = window.location.hash.replace("#", "").toLowerCase();
+    return PROJECT_GROUP_SLUGS[hash] || projectGroups[0];
+  });
   const [activeProject, setActiveProject] = useState(null);
   const projectsForGroup = projects.filter((project) => (project.categories || ["Featured"]).includes(activeGroup));
   const visibleProjects = projectsForGroup.slice(0, 6);
+
+  const selectGroup = (group) => {
+    setActiveGroup(group);
+    const slug = slugifyProjectGroup(group);
+    history.replaceState(null, "", group === projectGroups[0] ? window.location.pathname : `#${slug}`);
+  };
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "").toLowerCase();
+    if (PROJECT_GROUP_SLUGS[hash] && PROJECT_GROUP_SLUGS[hash] !== activeGroup) {
+      setActiveGroup(PROJECT_GROUP_SLUGS[hash]);
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="projects" className="section section--wide section--centered">
@@ -329,7 +358,7 @@ function Projects({ projects }) {
           <button
             className={`project-tab ${group === "Featured" ? "is-featured" : ""} ${activeGroup === group ? "is-active" : ""}`}
             type="button"
-            onClick={() => setActiveGroup(group)}
+            onClick={() => selectGroup(group)}
             key={group}
           >
             <span>{group === "Featured" ? "★ Featured" : group}</span>
@@ -358,6 +387,12 @@ function Projects({ projects }) {
               {project.image ? (
                 <div className="project-card__media">
                   <img src={project.image} alt={`${project.title} preview`} loading="lazy" decoding="async" />
+                  {(project.images?.length || 0) > 1 ? (
+                    <span className="project-card__photo-count">
+                      <Images size={13} />
+                      {project.images.length}
+                    </span>
+                  ) : null}
                 </div>
               ) : null}
               <div className="project-card__top">

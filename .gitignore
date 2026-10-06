@@ -5,6 +5,7 @@ node_modules/
 dist/
 CORE_INFORMATION/
 .opencode/
+.pi/
 
 # Preview HTML files (development reference only)
 public/*.html
