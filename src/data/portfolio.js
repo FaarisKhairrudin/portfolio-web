@@ -77,38 +77,6 @@ export const portfolioData = {
       },
     },
     {
-      title: "Lenta AI Operations System",
-      badge: "AI Agent & Business Automation",
-      image: "/assets/project/Lenta AI/1.png",
-      images: [
-        "/assets/project/Lenta AI/1.png",
-        "/assets/project/Lenta AI/2.png",
-        "/assets/project/Lenta AI/3.png",
-        "/assets/project/Lenta AI/4.png",
-        "/assets/project/Lenta AI/5.png",
-      ],
-      summary:
-        "A WhatsApp AI assistant that runs customer service and stock management for a water and gas delivery business, plus a dashboard for the owner.",
-      stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
-      link: "https://github.com/FaarisKhairrudin/lenta-ai-operations-system",
-      type: "AI Automation",
-      categories: ["Featured", "AI Automation"],
-      star: {
-        situation:
-          "A busy depot's operations were drowning: customers messaged for orders and prices at all hours, while stock and order records were tracked by hand.",
-        task: "Build a WhatsApp AI assistant that serves customers automatically and helps the owner manage stock and order summaries.",
-        action: [
-          "Built 4 integrated n8n workflows with 2 AI agents: a Customer Service Agent (DeepSeek) for customers and a Stock Manager Agent for the owner.",
-          "Designed a multi-message buffer (15 second delay) so the AI waits for the short, rapid messages Indonesian customers send in bursts before executing tools.",
-          "Engineered the agent persona to reply in natural, human-like WhatsApp style instead of robotic language.",
-          "Used tool calling heavily: the AI extracts order details, calculates delivery fees, and writes transactions to the database.",
-          "Designed a relational Supabase schema (customers, products, orders, order_items, inventory, buffer_message).",
-        ],
-        result:
-          "Customer service and stock management now run on autopilot: precise order capture, automatic stock deduction, low-stock alerts, and a monitoring dashboard for daily rekap, all tied to real business logic.",
-      },
-    },
-    {
       title: "ARIA Property Matchmaker",
       badge: "AI Sales Agent & WhatsApp Automation",
       image: "/assets/project/ARIA/1.jpg",
@@ -139,6 +107,38 @@ export const portfolioData = {
         ],
         result:
           "A complete WhatsApp sales pipeline on autopilot: instant brochure-accurate answers, faster survey bookings, no lead left behind, and human CS only stepping in where truly needed — verified live answering specs and installments end to end.",
+      },
+    },
+    {
+      title: "Lenta AI Operations System",
+      badge: "AI Agent & Business Automation",
+      image: "/assets/project/Lenta AI/1.png",
+      images: [
+        "/assets/project/Lenta AI/1.png",
+        "/assets/project/Lenta AI/2.png",
+        "/assets/project/Lenta AI/3.png",
+        "/assets/project/Lenta AI/4.png",
+        "/assets/project/Lenta AI/5.png",
+      ],
+      summary:
+        "A WhatsApp AI assistant that runs customer service and stock management for a water and gas delivery business, plus a dashboard for the owner.",
+      stack: ["n8n", "Supabase", "OpenRouter", "AI Agent", "Tool Calling", "Next.js"],
+      link: "https://github.com/FaarisKhairrudin/lenta-ai-operations-system",
+      type: "AI Automation",
+      categories: ["Featured", "AI Automation"],
+      star: {
+        situation:
+          "A busy depot's operations were drowning: customers messaged for orders and prices at all hours, while stock and order records were tracked by hand.",
+        task: "Build a WhatsApp AI assistant that serves customers automatically and helps the owner manage stock and order summaries.",
+        action: [
+          "Built 4 integrated n8n workflows with 2 AI agents: a Customer Service Agent (DeepSeek) for customers and a Stock Manager Agent for the owner.",
+          "Designed a multi-message buffer (15 second delay) so the AI waits for the short, rapid messages Indonesian customers send in bursts before executing tools.",
+          "Engineered the agent persona to reply in natural, human-like WhatsApp style instead of robotic language.",
+          "Used tool calling heavily: the AI extracts order details, calculates delivery fees, and writes transactions to the database.",
+          "Designed a relational Supabase schema (customers, products, orders, order_items, inventory, buffer_message).",
+        ],
+        result:
+          "Customer service and stock management now run on autopilot: precise order capture, automatic stock deduction, low-stock alerts, and a monitoring dashboard for daily rekap, all tied to real business logic.",
       },
     },
     {
