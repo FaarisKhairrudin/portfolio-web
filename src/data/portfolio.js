@@ -1,7 +1,7 @@
 export const portfolioData = {
   profile: {
     name: "Faaris Khairrudin",
-    role: "Data Science Student & AI Practitioner",
+    role: "AI Engineer & Data Scientist",
     location: "Bandung / Bekasi, Indonesia",
     email: "faariskhairrudin@gmail.com",
     github: "https://github.com/FaarisKhairrudin",
@@ -10,13 +10,13 @@ export const portfolioData = {
     cv: "/cv_FaarisKhairrudin.pdf",
     image: "/formal_image.jpeg",
     headline:
-      "From raw data to production AI - I build, compete, and ship.",
+      "From raw data to production AI - I build, automate, and ship.",
     summary:
       "Turning research ideas and competition problems into working AI systems, dashboards, and decision pipelines. 3.93 GPA at Telkom University, focused on multimodal AI, computer vision, forecasting, and big data.",
   },
   metrics: [
     { value: "3.93", label: "GPA / 4.00", countTo: 3.93 },
-    { value: "10+", label: "Data & AI competitions", countTo: 10, suffix: "+" },
+    { value: "15+", label: "AI & data projects shipped", countTo: 15, suffix: "+" },
     { value: "4th", label: "National rank, Satria Data", countTo: 4, suffix: "th" },
     { value: "Top 7", label: "Datathon UI national finalist", countTo: 7, prefix: "Top " },
   ],

@@ -347,7 +347,7 @@ function Projects({ projects }) {
       <div className="projects-panel">
       <ScrollReveal className="section__heading">
         <span className="eyebrow">Selected Work</span>
-        <h2>Browse projects by category.</h2>
+        <h2>Proof, grouped by craft.</h2>
       </ScrollReveal>
       <ScrollReveal className="projects-hint" y={8}>
         <p>Filter by area below, then click any project to read its full story with the technical details.</p>
@@ -693,7 +693,7 @@ export default function App() {
       <Experience experience={data.experience} />
       <Skills skills={data.skills} techLogos={data.techLogos || portfolioData.techLogos} />
       <Contact data={data} />
-      <footer className="footer">AI systems, research stories, and competition proof - built by Faaris Khairrudin.</footer>
+      <footer className="footer">Built by Faaris Khairrudin — AI systems, research, and competition wins.</footer>
       {isDev && adminOpen ? (
         <AdminPanel
           data={data}
