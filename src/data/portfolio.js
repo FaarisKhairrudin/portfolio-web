@@ -468,7 +468,7 @@ export const portfolioData = {
     {
       title: "Teaching Assistant",
       org: "Telkom University",
-      period: "Mar 2026 - Present",
+      period: "Mar 2026 - Jun 2026",
       details:
         "Assists the Intelligent Systems course by mentoring students in artificial intelligence fundamentals, algorithm implementation, and technical assignment review.",
     },
