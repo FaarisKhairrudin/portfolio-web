@@ -106,7 +106,7 @@ export const portfolioData = {
           "Automated the full lead lifecycle: H+1/H+2 follow-ups, survey reminders 2 hours before, a daily report for the manager, and a centralized error handler with retries on external calls.",
         ],
         result:
-          "A complete WhatsApp sales pipeline on autopilot: instant brochure-accurate answers, faster survey bookings, no lead left behind, and human CS only stepping in where truly needed — verified live answering specs and installments end to end.",
+          "A complete WhatsApp sales pipeline on autopilot: instant brochure-accurate answers, faster survey bookings, no lead left behind, and human CS only stepping in where truly needed. Verified live answering specs and installments end to end.",
       },
     },
     {
@@ -193,7 +193,7 @@ export const portfolioData = {
       badge: "Hology 8.0 - Data Mining Track",
       image: "/assets/project/crowd-detection-counting.webp",
       summary:
-        "A computer vision system that estimates how many people are in dense, crowded scenes, built for the Hology 8.0 data mining track.",
+        "Density-based crowd counter for packed venues and public spaces. Estimates headcount where standard detectors fail on occlusion.",
       stack: ["PyTorch", "CSRNet", "VGG-16", "Albumentations"],
       link: "https://github.com/Frenwin/Hology-8.0-Crowd-Detection",
       type: "Computer Vision",
@@ -216,7 +216,7 @@ export const portfolioData = {
       badge: "Find IT UGM 2026",
       image: "/assets/project/smart-face-anti-spoofing.webp",
       summary:
-        "Detects whether a face in front of a camera is real or a spoof attack (photo, video, mask), a core safety layer for biometric systems.",
+        "Face liveness check for biometric systems. Blocks photo, video, and mask spoofing before it reaches authentication.",
       stack: ["PyTorch", "Transformers", "DINOv3", "Focal Loss"],
       link: "https://github.com/FaarisKhairrudin/Smart-Face-AntiSpoofing",
       type: "AI Security",
@@ -265,7 +265,7 @@ export const portfolioData = {
       badge: "DATAVIDIA 2026 Preliminary",
       image: "/assets/project/DATAVIDIA-ISPU-Prediction.png",
       summary:
-        "Predicts Jakarta's daily air quality category (ISPU) days ahead, so people and city agencies can prepare for unhealthy days.",
+        "Daily air quality early warning for Jakarta. Forecasts the ISPU category days ahead so residents and agencies act before the bad air day, not after.",
       stack: ["Python", "NeuralForecast", "TFT", "Pandas", "Scikit-learn"],
       link: "https://github.com/FaarisKhairrudin/neuralforecast-air-quality-jakarta",
       type: "Forecasting",
@@ -289,7 +289,7 @@ export const portfolioData = {
       badge: "Data Science Indonesia Challenge",
       image: "/assets/project/bank-customer-deposit-prediction.webp",
       summary:
-        "Predicts which bank customers will sign up for a term deposit, so marketing teams can focus their outreach on the right people.",
+        "Deposit propensity scorer for bank marketing teams. Ranks who is most likely to subscribe so outreach budget goes to the right customers.",
       stack: ["Python", "XGBoost", "LightGBM", "CatBoost", "Ensemble"],
       link: "https://github.com/FaarisKhairrudin/bank-customer-deposit-prediction",
       type: "Tabular ML",
@@ -309,7 +309,7 @@ export const portfolioData = {
     },
     {
       title: "Narapangan",
-      badge: "Capstone Project — Telkom University",
+      badge: "Capstone Project, Telkom University",
       image: "/assets/project/Narapangan.png",
       summary:
         "An end-to-end AI system predicting commodity food prices 4 weeks ahead in Bandung and turning forecasts into prescriptive procurement advice for F&B MSMEs via Gemini 2.5 Flash.",
@@ -346,7 +346,7 @@ export const portfolioData = {
       badge: "FindIT UGM - Data Science Track",
       image: "/assets/project/COPPA-Violation-Detection.png",
       summary:
-        "Flags mobile apps that may violate children's online privacy rules (COPPA) by analyzing app metadata, built for FindIT UGM.",
+        "COPPA risk screener for kids apps. Flags privacy violating data collection from app metadata to help regulators and parents act early.",
       stack: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering", "EDA"],
       link: "https://github.com/FaarisKhairrudin/coppa-violation-detection",
       type: "Classification",
@@ -366,7 +366,7 @@ export const portfolioData = {
     },
     {
       title: "Financial Document Extraction & Reconciliation",
-      badge: "n8n Automation Workflow",
+      badge: "100% Automated Reconciliation",
       image: "/assets/project/financial-doc-extraction.webp",
       summary:
         "Reads invoices from your inbox, extracts the details with AI, and files them into a spreadsheet automatically, so nobody types invoice data by hand.",
@@ -389,7 +389,7 @@ export const portfolioData = {
     },
     {
       title: "AI-Powered Personal Finance & Money Management",
-      badge: "n8n Automation Workflow",
+      badge: "Self-Updating Money Tracker",
       image: "/assets/project/personal-finance-ai.webp",
       summary:
         "Reads your bank transaction emails and categorizes spending automatically with AI, so personal bookkeeping stays tidy without manual entry.",
@@ -412,7 +412,7 @@ export const portfolioData = {
     },
     {
       title: "Automated Invoice & Debt Collector",
-      badge: "n8n Automation Workflow",
+      badge: "Auto Debt Collection Bot",
       image: "/assets/project/invoice-debt-collector.webp",
       summary:
         "Chases unpaid invoices automatically on WhatsApp and email, politely and on schedule, so cash flow stays healthy without nagging clients by hand.",
@@ -435,7 +435,7 @@ export const portfolioData = {
     },
     {
       title: "Hyper-Targeted B2B Lead Generator",
-      badge: "n8n Automation Workflow",
+      badge: "Hyper-Personalized Outreach Engine",
       image: "/assets/project/b2b-lead-generator.webp",
       summary:
         "Finds high-quality B2B prospects from a single keyword, researches each one with AI, and drafts personalized cold outreach ready to send.",

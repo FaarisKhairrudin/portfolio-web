@@ -693,7 +693,7 @@ export default function App() {
       <Experience experience={data.experience} />
       <Skills skills={data.skills} techLogos={data.techLogos || portfolioData.techLogos} />
       <Contact data={data} />
-      <footer className="footer">Built by Faaris Khairrudin — AI systems, research, and competition wins.</footer>
+      <footer className="footer">Built by Faaris Khairrudin. AI systems, research, and competition wins.</footer>
       {isDev && adminOpen ? (
         <AdminPanel
           data={data}
