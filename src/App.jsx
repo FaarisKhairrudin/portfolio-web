@@ -12,7 +12,6 @@ import {
   RefreshCcw,
   Save,
   Sun,
-  Trophy,
   X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -578,8 +577,8 @@ function Contact({ data }) {
           {data.profile.location}
         </span>
         <span>
-          <Trophy size={16} />
-          4th Place National Winner - Satria Data 2025
+          <span className="status-dot" aria-hidden="true" />
+          Open to opportunities
         </span>
       </div>
     </ScrollReveal>
