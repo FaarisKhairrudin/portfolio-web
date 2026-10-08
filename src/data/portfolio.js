@@ -177,15 +177,16 @@ export const portfolioData = {
       categories: ["Featured", "Forecasting & Machine Learning"],
       star: {
         situation:
-          "Illegal gold mining (PETI) causes deforestation and environmental damage, but monitoring vast remote areas on foot is impractical.",
-        task: "Design a classification approach to detect indications of PETI from large-scale satellite data.",
+          "Illegal gold mining (PETI) causes deforestation and environmental damage across Jambi and Central Kalimantan, but monitoring vast remote areas on foot is impractical.",
+        task: "Build a multi-year satellite ML pipeline that maps PETI expansion from 2022 to 2025 and delivers clean spatial data for an interactive monitoring map.",
         action: [
-          "Processed large-scale remote sensing imagery through Google Earth Engine.",
-          "Extracted geospatial features from satellite images.",
-          "Designed and experimented with classification models to flag PETI indicators.",
+          "Fused optical and SAR radar satellite imagery at province scale in Google Earth Engine and trained a Random Forest classifier for mine detection.",
+          "Engineered hybrid spatial filters (water bodies, roads, seasonal farmland, settlements) that removed tens of thousands of hectares of false positive noise.",
+          "Ran year by year trend analysis (2022-2025) to map expansion, fragmentation, and shifting mining areas in both provinces.",
+          "Exported the final spatial dataset as Shapefiles for integration into the PETI Map web monitoring platform.",
         ],
         result:
-          "Supported an institutional research effort at Telkom University with a reproducible geospatial ML pipeline and hands-on experience with satellite data at scale.",
+          "Achieved 98.88% F1 in Central Kalimantan and 90.88% F1 in Jambi, supporting a Telkom University research effort with measured, map-ready results.",
       },
     },
     {
